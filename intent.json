@@ -1,0 +1,85 @@
+{
+    "interactionModel": {
+      "languageModel": {
+        "invocationName": "perplexity ai",
+        "intents": [
+          {
+            "name": "AskPerplexityIntent",
+            "slots": [
+              {
+                "name": "query",
+                "type": "AMAZON.SearchQuery"
+              }
+            ],
+            "samples": [
+              "erkläre {query}",
+              "erklär {query}",
+              "erzähle {query}",
+              "erzähl {query}",
+              "diskutier {query}",
+              "diskutiere {query}",
+              "gib {query}",
+              "frage {query}",
+              "frag {query}",
+              "ich {query}",
+              "wir {query}",
+              "sage {query}",
+              "sag {query}",
+              "kannst {query}",
+              "kann {query}",
+              "hat {query}",
+              "gibt {query}",
+              "hilf {query}",
+              "warum {query}",
+              "worum {query}",
+              "was {query}",
+              "wie {query}",
+              "wer {query}",
+              "wo {query}",
+              "welchen {query}",
+              "ab {query}",
+              "es {query}",
+              "sollte {query}",
+              "soll {query}",
+              "wenn {query}",
+              "mein {query}",
+              "lass {query}",
+              "berechne {query}",
+              "rechne {query}",
+              "zeig {query}",
+              "zeige {query}",
+              "mach {query}",
+              "bitte {query}",
+              "und {query}"
+            ]
+          },
+          {
+            "name": "AMAZON.YesIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.NoIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.CancelIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.NavigateHomeIntent",
+            "samples": []
+          }
+        ],
+        "types": []
+      }
+    }
+  }
+  
