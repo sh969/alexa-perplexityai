@@ -6,7 +6,7 @@ SKILL_ID = os.environ["SKILL_ID"]
 API_KEY = os.environ["API_KEY"]
 API_URL = "https://api.perplexity.ai/chat/completions"
 
-WELCOME_TEXT = "Willkommen bei Perplexity AI. Was möchtest du wissen?"
+WELCOME_TEXT = "Willkommen bei Perplexity. Was möchtest du wissen?"
 HELP_TEXT = "Du kannst mir jede Frage stellen. Was möchtest du wissen?"
 GOODBYE_TEXT = "Auf Wiedersehen!"
 ERROR_TEXT = "Entschuldigung, es ist ein Fehler aufgetreten."
@@ -18,23 +18,36 @@ def lambda_handler(event, context):
     req = event["request"]
     if req["type"] == "LaunchRequest":
         return build_response(WELCOME_TEXT, WELCOME_TEXT, False)
+
     if req["type"] == "IntentRequest":
         intent = req["intent"]["name"]
-        slots = req["intent"].get("slots", {})
+        slots  = req["intent"].get("slots", {})
+
         if intent == "AskPerplexityIntent":
             query = slots.get("query", {}).get("value")
             if not query:
                 return build_response(HELP_TEXT, HELP_TEXT, False)
             answer = ask_perplexity(query)
             return build_response(answer, FOLLOWUP_TEXT, False)
+
+        if intent == "AMAZON.YesIntent":
+            return build_response("Was möchtest du wissen?", None, False)
+
+        if intent == "AMAZON.NoIntent":
+            return build_response(GOODBYE_TEXT, None, True)
+
         if intent == "AMAZON.HelpIntent":
             return build_response(HELP_TEXT, HELP_TEXT, False)
+
         if intent in ("AMAZON.CancelIntent", "AMAZON.StopIntent"):
             return build_response(GOODBYE_TEXT, None, True)
+
         if intent == "AMAZON.NavigateHomeIntent":
             return build_response(WELCOME_TEXT, WELCOME_TEXT, False)
+
     if req["type"] == "SessionEndedRequest":
         return {}
+
     return build_response(ERROR_TEXT, None, True)
 
 def ask_perplexity(query: str) -> str:
