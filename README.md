@@ -20,5 +20,15 @@ A tiny Python 3.11 Lambda that lets Alexa query Perplexity’s **sonar** model �
    Invocation name: “perplexity”  
    Add intent
 
+## Working one-shot Queries
+- „Alexa, frage Plex nach einem exzellenten Spargelrezept“
+- „Alexa, bitte Plex um eine Erklärung zu neuronalen Netzen“
+- „Alexa, sage Plex wie funktioniert ein Laser“
+- „Alexa, frage Plex was ist Quantencomputing“
+- „Alexa, frage Plex berechne die Fläche eines Kreises“
+- „Alexa, frage Plex was weißt du über Alan Turing“
+
+Otherwise say "Starte Plex" to start the skill, then ask a question.
+
 ## Author
 Sebastian Horstmann
