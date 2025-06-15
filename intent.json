@@ -12,6 +12,9 @@
                         }
                     ],
                     "samples": [
+                        "perplexity ai {query}",
+                        "frage perplexity ai {query}",
+                        "sage perplexity ai {query}",
                         "erkläre {query}",
                         "erklär {query}",
                         "erzähle {query}",
